@@ -1,91 +1,130 @@
+"use client";
+
+import "./Skills.css";
+
+import { motion } from "framer-motion";
+import MouseGlow from "../Hero/MouseGlow";
+
+import {
+  FaJava,
+  FaPython,
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
+
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiMysql,
+} from "react-icons/si";
 export default function Skills() {
-  const skillCategories = [
-    {
-      title: "Programming Languages",
-      skills: [
-        { icon: "☕", name: "Java", level: "Advanced" },
-        { icon: "🐍", name: "Python", level: "Intermediate" },
-        { icon: "💻", name: "C", level: "Intermediate" },
-      ],
-    },
-    {
-      title: "Web Development",
-      skills: [
-        { icon: "🌐", name: "HTML", level: "Advanced" },
-        { icon: "🎨", name: "CSS", level: "Advanced" },
-        { icon: "🟨", name: "JavaScript", level: "Intermediate" },
-        { icon: "⚛️", name: "React.js", level: "Intermediate" },
-        { icon: "▲", name: "Next.js", level: "Intermediate" },
-        { icon: "💨", name: "Tailwind CSS", level: "Advanced" },
-      ],
-    },
-    {
-      title: "Database & Tools",
-      skills: [
-        { icon: "🗄️", name: "SQL", level: "Intermediate" },
-        { icon: "🌿", name: "Git", level: "Intermediate" },
-        { icon: "🐙", name: "GitHub", level: "Intermediate" },
-      ],
-    },
-    {
-      title: "Core Computer Science",
-      skills: [
-        { icon: "📘", name: "Data Structures & Algorithms", level: "Strong" },
-        { icon: "🏗️", name: "Object-Oriented Programming", level: "Strong" },
-        { icon: "🛢️", name: "DBMS", level: "Strong" },
-        { icon: "🖥️", name: "Operating Systems", level: "Intermediate" },
-      ],
-    },
+  const row1 = [
+    { icon: <FaJava />, name: "Java" },
+    { icon: <FaReact />, name: "React.js" },
+    { icon: <SiNextdotjs />, name: "Next.js" },
+    { icon: <FaHtml5 />, name: "HTML5" },
+    { icon: <FaCss3Alt />, name: "CSS" },
+    { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+    { icon: <FaJs />, name: "JavaScript" },
+  ];
+
+  const row2 = [
+    { icon: <FaPython />, name: "Python" },
+    { icon: <SiMysql />, name: "SQL" },
+    { icon: <FaGitAlt />, name: "Git" },
+    { icon: <FaGithub />, name: "GitHub" },
+    { icon: "🛢️", name: "DBMS" },
+    { icon: "📘", name: "DSA" },
+  ];
+
+  const row3 = [
+    { icon: "🏗️", name: "OOP" },
+    { icon: "🖥️", name: "Operating Systems" },
+    { icon: "🔗", name: "REST API" },
+    { icon: "🧠", name: "Problem Solving" },
   ];
 
   return (
     <section
       id="skills"
-      className="min-h-screen bg-gray-100 py-20"
+      className="relative overflow-hidden min-h-screen py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-white border-t border-blue-100"
     >
-      <div className="max-w-7xl mx-auto px-8">
+      <MouseGlow />
 
-        <h2 className="text-5xl font-bold text-center mb-14">
-          Technical Skills
-        </h2>
+      <div className="relative z-10 max-w-7xl mx-auto px-8">
 
-        <div className="space-y-14">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+            Technical Skills
+          </h2>
 
-          {skillCategories.map((category) => (
-            <div key={category.title}>
+          <div className="w-24 h-1 bg-blue-600 rounded-full mx-auto mt-6"></div>
+        </motion.div>
 
-              <h3 className="text-2xl font-semibold text-blue-600 mb-8">
-                {category.title}
-              </h3>
-
-              <div className="grid grid-cols-3 gap-8">
-
-                {category.skills.map((skill) => (
-                  <div
-                    key={skill.name}
-                    className="bg-white rounded-2xl shadow-lg h-40 flex flex-col justify-center items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
-                  >
-                    <div className="text-4xl mb-3">
-                      {skill.icon}
-                    </div>
-
-                    <h4 className="text-xl font-semibold text-blue-600">
-                      {skill.name}
-                    </h4>
-
-                    <p className="text-gray-600 mt-2">
-                      {skill.level}
-                    </p>
-
-                  </div>
-                ))}
-
+        {/* Row 1 */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="marquee mb-8"
+        >
+          <div className="marquee-track">
+            {[...row1, ...row1, ...row1].map((skill, index) => (
+              <div key={index} className="skill-pill">
+                <span className="skill-icon">{skill.icon}</span>
+                <span className="skill-name">{skill.name}</span>
               </div>
+            ))}
+          </div>
+        </motion.div>
 
-            </div>
-          ))}
+        {/* Row 2 */}
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="marquee-reverse mb-8"
+        >
+          <div className="marquee-track-reverse">
+            {[...row2, ...row2, ...row2].map((skill, index) => (
+              <div key={index} className="skill-pill">
+                <span className="skill-icon">{skill.icon}</span>
+                <span className="skill-name">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
-        </div>
+        {/* Row 3 */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="marquee"
+        >
+          <div className="marquee-track">
+            {[...row3, ...row3, ...row3].map((skill, index) => (
+              <div key={index} className="skill-pill">
+                <span className="skill-icon">{skill.icon}</span>
+                <span className="skill-name">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
       </div>
     </section>

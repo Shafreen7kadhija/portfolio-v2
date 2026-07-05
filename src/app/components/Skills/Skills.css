@@ -1,0 +1,133 @@
+/* ===== Marquee ===== */
+
+.marquee,
+.marquee-reverse {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0;
+}
+
+.marquee::before,
+.marquee::after,
+.marquee-reverse::before,
+.marquee-reverse::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee::before,
+.marquee-reverse::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgb(248 250 252),
+    transparent
+  );
+}
+
+.marquee::after,
+.marquee-reverse::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgb(248 250 252),
+    transparent
+  );
+}
+
+.marquee-track,
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+}
+
+/* Left */
+
+.marquee-track {
+  animation: scrollLeft 38s linear infinite;
+}
+
+/* Right */
+
+.marquee-track-reverse {
+  animation: scrollRight 38s linear infinite;
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* Pause on hover */
+
+.marquee:hover .marquee-track,
+.marquee-reverse:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+/* ===== Skill Pill ===== */
+
+.skill-pill {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 20px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.92);
+
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgb(219 234 254);
+
+  box-shadow: 0 10px 25px rgba(37,99,235,0.08);
+
+  transition: all .35s ease;
+}
+
+.skill-pill:hover {
+
+  transform: translateY(-5px) scale(1.05);
+
+  box-shadow: 0 18px 40px rgba(37,99,235,.18);
+}
+
+.skill-icon{
+
+  font-size:24px;
+}
+
+.skill-name{
+
+  font-size:16px;
+
+  font-weight:600;
+
+  color:#2563eb;
+}
