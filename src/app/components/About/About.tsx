@@ -59,9 +59,11 @@ export default function About() {
             </p>
 
             <p className="text-gray-700 leading-9 text-lg mt-6">
-              I enjoy developing real-world applications, solving challenging
-              coding problems, and continuously improving my technical and
-              problem-solving skills through projects and lifelong learning.
+                I enjoy building real-world software, solving challenging coding
+                problems, and continuously expanding my technical knowledge.
+                Beyond programming, I enjoy playing chess, a game that has
+                strengthened my analytical thinking, strategic planning, and
+                problem-solving approach.
             </p>
           </motion.div>
 
